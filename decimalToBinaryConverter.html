@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+//DECIMAL TO BINARY CONVERTER
+
+/*
+/ 1. If the number is even, emit a zero. If the number is odd, emit a one.
+  if (currentNum / 2 == 0) {emitZero} else {emitOne}
+/ 2. Divide the number by two and throw away any fractional component or remainder
+  currentNum = currentNum / 2;
+/ 3. If the quotient is zero, the algorithm is complete.
+  if (currentNum == 0) {alert("algorithm is complete");}
+/ 4. If the quotient is not zero and the number is odd, insert a one before the current string.
+  if (currentNum != 0 && currentNum / 2 != 0) {emitOne}
+/    If the quotient is not zero and the number is even, prefix your binary string with zero.
+  else {emitZero}
+/ 5. Go back to step 2 and repeat
+  
+*/
+
+var complete = false;
+var binaryNum = [];
+var binaryString;
+var chosenInt;
+
+chosenInt = prompt("Choose an int");
+chosenInt = parseInt(chosenInt);
+alert(chosenInt);
+var currentNum = chosenInt;
+
+function emitZero()
+{
+ binaryNum.unshift("0");
+}
+
+function emitOne()
+{
+ binaryNum.unshift("1");
+}
+
+
+while(!complete) {runAlgorithm();} //step 3
+
+function runAlgorithm()
+{
+ if (currentNum == 0) 
+ {
+  alert(binaryNum);
+  complete = true;
+ }
+ else if(Math.floor(currentNum % 2) != 0)
+ {
+  emitOne();
+  currentNum = Math.floor(currentNum / 2);
+ }
+ else if(Math.floor(currentNum % 2) == 0)
+ {
+  emitZero();
+  currentNum = Math.floor(currentNum / 2);
+ }
+}
+
+binaryString = binaryNum.join('');
+alert("algorithm complete"  + "    BinaryNum: " + binaryString );
+</script>
+</head>
+<body>
+
+</body>
+</html>

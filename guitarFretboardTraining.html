@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<canvas id="gameCanvas" width="1200" height="400" style="border:1px solid #000000;"></canvas>
+<div>
+ Select speed (in milliseconds, 1000 = 1 second): <input type="number" id="speedInput" size="1"><br>
+ <button type="button" onclick="applySettings()">Apply Settings</button><br>
+ <button type="button" onclick="setInterval(noteTraining, speedLv)">Start Note Training</button><br>
+ <button type="button" onclick="writeAllNotes()">Show All Notes</button>
+ <button type="button" onclick="clearFretboard()">Clear Fretboard</button>
+</div>
+
+<script>
+var canvas = document.getElementById("gameCanvas");
+var ctx = canvas.getContext("2d");
+
+var speedLv = document.getElementById("speedInput");
+
+            //0    1     2    3    4     5     6    7     8   9     10    11
+var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+
+
+function applySettings()
+{
+ //speedLv 1-100, slow-fast, 1 = every .1 sec, 100 = every 10 sec 
+ speedLv = document.getElementById("speedInput").value;
+ speedLv = parseInt(speedLv, 10);
+ alert("Speed Level: " + speedLv + "  Updates every " + speedLv/1000 + " second(s)");
+}
+
+function drawFretboard()
+{
+ //draw fretboard background
+ var fretboardWidth = 400;
+ ctx.fillStyle = "#895D22";
+ ctx.fillRect(0, 0, 1200, 400);
+ 
+ //write fret numbers at bottom
+ for (i = 0, x = 50; i <= 12; i++, x += 100)
+ {
+  ctx.font = "32px Arial";
+  ctx.fillStyle = "#fff";
+  ctx.fillText(i, x, 360 );
+ }
+}
+
+function drawFrets()
+{
+ ctx.strokeStyle = "#c4b6a8";
+ ctx.lineWidth= 12;
+ ctx.beginPath();
+ ctx.moveTo(100, 0);
+ ctx.lineTo(100, 400);
+ ctx.stroke();
+ 
+ for (var i = 0, x = 200; i < 12; i++)
+ {
+  ctx.lineWidth=4;
+  ctx.beginPath();
+  ctx.moveTo(x, 0);
+  ctx.lineTo(x, 400);
+  ctx.stroke();
+  x += 100;
+ }
+}
+
+function drawStrings()
+{
+ ctx.lineWidth= 2;
+ for (var stringNum = 1, stringHeight = 50; stringNum <= 6; stringNum++) 
+ {
+  ctx.strokeStyle = "#D8CC34";
+  
+  ctx.beginPath();
+  ctx.moveTo(0, stringHeight);
+  ctx.lineTo(1200, stringHeight);
+  ctx.stroke();
+  ctx.lineWidth += 1;
+  stringHeight += 50;
+ }
+}
+
+function drawNoteBoxes()
+{
+ stringHeight = 50;
+ fretNum = 1
+ fretXPos = fretNum * 100;
+ ctx.fillStyle = "#24f";
+ 
+ for (var stringNum = 1; stringNum < 7; stringNum++) 
+ {
+  for (; fretNum <= 12; fretNum++)
+  {
+   ctx.fillStyle = "#24f";
+   ctx.fillRect( (fretXPos - 70), (stringHeight - 20), 60 , 40);
+   ctx.fillRect( (fretXPos - 70), ((stringHeight * 2) - 20), 60 , 40);
+   ctx.fillRect( (fretXPos - 70), ((stringHeight * 3) - 20), 60 , 40);
+   ctx.fillRect( (fretXPos - 70), ((stringHeight * 4) - 20), 60 , 40);
+   ctx.fillRect( (fretXPos - 70), ((stringHeight * 5) - 20), 60 , 40);
+   ctx.fillRect( (fretXPos - 70), ((stringHeight * 6) - 20), 60 , 40);
+   fretXPos += 100;
+  }
+ }
+}
+
+function writeAllNotes()
+{
+ ctx.font = "24px Arial";
+ ctx.fillStyle = "#fff";
+ 
+ var 
+  eStringVal = 7,
+  bStringVal = 2,
+  gStringVal = 10,
+  dStringVal = 5,
+  aStringVal = 0,
+  EStringVal = 7;
+     
+ for (var fretNum = 0, xPos = 50; fretNum <= 12; fretNum++, xPos += 100)
+ {
+  if (eStringVal >= 12) {eStringVal = 0;}
+  ctx.fillText(notes[eStringVal], xPos, 60 );
+  eStringVal += 1;
+  
+  if (bStringVal >= 12) {bStringVal = 0;}
+  ctx.fillText(notes[bStringVal], xPos, 110 );
+  bStringVal += 1;
+  
+  if (gStringVal >= 12) {gStringVal = 0;}
+  ctx.fillText(notes[gStringVal], xPos, 160 );
+  gStringVal += 1;
+  
+  if (dStringVal >= 12) {dStringVal = 0;}
+  ctx.fillText(notes[dStringVal], xPos, 210 );
+  dStringVal += 1;
+  
+  if (aStringVal >= 12) {aStringVal = 0;}
+  ctx.fillText(notes[aStringVal], xPos, 260 );
+  aStringVal += 1;
+  
+  if (EStringVal >= 12) {EStringVal = 0;}
+  ctx.fillText(notes[EStringVal], xPos, 310 );
+  EStringVal += 1;
+ }
+}
+
+function noteTraining()
+{
+ clearFretboard();
+ ctx.font = "24px Arial";
+ ctx.fillStyle = "#fff";
+ 
+ var 
+  eStringVal = 7,
+  bStringVal = 2,
+  gStringVal = 10,
+  dStringVal = 5,
+  aStringVal = 0,
+  EStringVal = 7;
+  
+ var currentNoteVal = Math.floor(Math.random() * Math.floor(12));
+ //alert(currentNoteVal);
+     
+ for (var fretNum = 0, xPos = 50; fretNum <= 12; fretNum++, xPos += 100)
+ {
+  if (eStringVal >= 12) {eStringVal = 0;}
+  if (eStringVal == currentNoteVal) {ctx.fillText(notes[currentNoteVal], xPos, 60 );}
+  eStringVal += 1;
+  
+  if (bStringVal >= 12) {bStringVal = 0;}
+  if (bStringVal == currentNoteVal) {ctx.fillText(notes[currentNoteVal], xPos, 110 );}
+  bStringVal += 1;
+  
+  if (gStringVal >= 12) {gStringVal = 0;}
+  if (gStringVal == currentNoteVal) {ctx.fillText(notes[currentNoteVal], xPos, 160 );}
+  gStringVal += 1;
+  
+  if (dStringVal >= 12) {dStringVal = 0;}
+  if (dStringVal == currentNoteVal) {ctx.fillText(notes[currentNoteVal], xPos, 210 );}
+  dStringVal += 1;
+  
+  if (aStringVal >= 12) {aStringVal = 0;}
+  if (aStringVal == currentNoteVal) {ctx.fillText(notes[currentNoteVal], xPos, 260 );}
+  aStringVal += 1;
+  
+  if (EStringVal >= 12) {EStringVal = 0;}
+  if (EStringVal == currentNoteVal) {ctx.fillText(notes[currentNoteVal], xPos, 310 );}
+  EStringVal += 1;
+ }
+}
+
+function clearFretboard() 
+{
+ drawFretboard();
+ drawFrets();
+ drawStrings();
+ drawNoteBoxes();
+}
+
+
+drawFretboard();
+drawFrets();
+drawStrings();
+drawNoteBoxes();
+//writeAllNotes();
+//noteTraining();
+
+
+
+</script>
+</body>
+</html>

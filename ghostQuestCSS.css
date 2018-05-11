@@ -1,0 +1,63 @@
+#headerBarDiv
+{
+ position: fixed;
+ top: 0;
+ left: 0;
+ height: 5%;
+ width: 100%;
+ background-color: black;
+}
+
+#bodyDiv 
+{
+ position: fixed;
+ top: 5%;
+ left: 0;
+ height: 95%;
+ width: 100%;
+ background-image: url("Images/ghostShipBkgd.jpg");
+ background-repeat: no-repeat;
+ background-size: 100% 100%;
+ overflow-y: hidden;
+}
+
+#fg-canvas
+{
+ position: absolute; 
+ background-color: grey; 
+ border: 3px solid white; 
+ width: 640px; 
+ height: 400px;
+}
+ 
+//Start of header nav menu
+ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	list-style-type: none;
+}
+
+li 
+{
+    float: left;
+	list-style-type: none;
+	transform: translate(-50%, -50%);
+}
+
+li a
+{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover
+{
+    background-color: grey; //top level droppable buttons, grey
+    color: #0e3c87;
+}

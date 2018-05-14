@@ -1,0 +1,53 @@
+body
+{
+ background-color: #cdf;	
+ font-size: 18px:
+}
+
+#navArea
+{
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 20%;
+ background-color: #4aaaff; 
+}
+
+#navArea ul
+{
+ list-style-type: none;
+ margin-left: 0;
+ padding-left: 0;
+ text-align: center;
+}
+
+#navArea li
+{
+ margin: 0;
+}
+
+#navArea a
+{
+ display: block;
+}
+
+#navArea a:hover
+{
+ background-color: grey;
+}
+
+#mainArea
+{
+ position: absolute;
+ top: 0;
+ left: 20%;
+ height: 100%;
+ width: 80%;
+ background-color: #cdf; 
+}
+
+#colorSettingButton
+{
+	
+}

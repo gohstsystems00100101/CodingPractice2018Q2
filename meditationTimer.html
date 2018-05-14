@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Meditation Timer</title>
+  <link rel="icon" href="file:///C:/Users/User/Desktop/GSNet/CommonResources/Images/logoIcon.png">
+  <link rel="stylesheet" href="practiceTemplate.css">
+
+
+</head>
+<body>
+<div id="navArea">
+ <ul>
+  <li id="colorSettingButton">Color Settings</li>
+ </ul>
+ <ul>
+  <li><a href="meditationTimer.html">Meditation Timer</a></li>
+ </ul>
+</div>
+
+<div id="mainArea">
+ <button onclick="beginTimer()">Begin Timer</button>
+ <button onclick="pauseTimer()">Pause Timer</button>
+ 
+ <div id="timeInfo">
+  
+ </div>
+</div>
+
+
+<script>
+var 
+ currentTime = 0,
+ currentMinutes = 0,
+ currentSeconds = 0;
+
+function beginTimer()
+{
+ running = true;
+ timerInterval = setInterval(runTimer, 1000);
+}
+
+
+function runTimer()
+{
+ 
+ currentTime++;
+ currentMinutes = Math.floor(currentTime / 60);
+ currentSeconds = currentTime % 60;
+ if (currentSeconds < 10)
+ {
+  document.getElementById("timeInfo").innerHTML = "Total time: " + currentMinutes + " : " + "0" + currentSeconds;
+ }
+ else
+ {
+ document.getElementById("timeInfo").innerHTML = "Total time: " + currentMinutes + " : " + currentSeconds;
+ }
+ }
+function pauseTimer()
+{
+ clearInterval(timerInterval);
+}
+
+</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,147 @@
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (min-width: 700px) /*start of laptop/large screen media query*/
+{
+ 
+ body
+ {
+  background-image: url(webPageBkgd0.jpg);
+  background-size: cover; 
+  
+  color: white;
+ }
+ 
+ .buttons
+ {
+  background-color: #aaa;
+  border: none;
+  color: white;
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+ }	 
+ 
+ .buttons:hover
+ {
+  background-color: #ccc;
+ } 
+ 
+ 
+ #functionsArea
+ {
+  background-color: rgba(28, 29, 29, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+ }
+ 
+ #displayArea
+ {
+  background-color: rgba(238, 223, 221, 0.7);
+  font-size: 34px;
+  color: #111;
+  position: fixed;
+  top: 0;
+  left: 30%;
+  width: 70%;
+  height: 100%; 
+ }
+ 
+ #englishDiv
+ {
+  background-color: rgba(23, 23, 221, 0.7);
+  font-size: 34px;
+  color: #111;
+  position: fixed;
+  top: 0;
+  left: 40%;
+  width: 15%;
+  height: 100%;  
+ }
+ 
+ #russianDiv
+ {
+  background-color: rgba(38, 223, 1, 0.7);
+  font-size: 34px;
+  color: #111;
+  position: fixed;
+  top: 0;
+  left: 55%;
+  width: 15%;
+  height: 100%;  
+ }
+ 
+ #latinDiv
+ {
+  position: fixed;
+  top: 0;
+  left: 70%;
+  width: 15%;
+  height: 100%;  
+ }
+ 
+ #spanishDiv
+ {
+  position: fixed;
+  top: 0;
+  left: 85%;
+  width: 15%;
+  height: 100%;  
+ }
+} /*end of laptop media query*/
+
+@media screen and (max-width: 699px) /*start of mobile/small screen media query*/
+{
+ 
+ body
+ {
+  background-color: black;
+  background-image: url(webPageBkgd1.jpg);
+  background-size: 100%; 
+ }
+ 
+  .buttons
+ {
+  background-color: #aaa; 
+  border: none;
+  color: white;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+ }	
+
+ .buttons:hover
+ {
+  background-color: #ccc;
+ } 
+
+ 
+ #functionsArea
+ {
+  background-color: rgba(28, 29, 29, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+ }
+ 
+ #displayArea
+ {
+  background-color: rgba(238, 223, 221, 0.7);
+  font-size: 14px;
+  color: #111;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  height: 70%; 
+  overflow-y: scroll;
+ }
+} /*end of mobile/small screen media query*/

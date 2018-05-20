@@ -9,7 +9,7 @@
 
 
 </head>
-<body>
+<body onload="displayMostRecentTime()">
 <div id="navArea">
  <ul>
   <li><a href="meditation_PracticeApp.html" >Meditation</a></li>
@@ -28,7 +28,82 @@
 <div id="mainArea">
  <h1>Daily Training Log</h1>
  <br>
- <button onclick="toggleTimer">Toggle Timer</button>
+ 
+ <button onclick="resetFastingTimer()">Reset Fasting Timer</button>
+ <p id="fastingTimeDisplay" >Time since last meal:</p>
+ 
+ 
+ 
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(1)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer1">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(2)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer2">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(3)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer3">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(4)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer4">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(5)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer5">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(6)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer6">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(7)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer7">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(8)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer8">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(9)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer9">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
+ 
+ <ul class="hourlyLogs">
+  <li><button onclick="toggleTrainingTimer(10)">Toggle Training Timer</button></li>
+  <li class="timeDisplay" id="timer10">Timer</li>
+  <li><input type="text" name="activityName" placeholder="activity"></li>
+  <li class="completedHrs">Complete</li>
+ </ul>
 </div>
 
 
